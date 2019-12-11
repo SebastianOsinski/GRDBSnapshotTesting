@@ -1,0 +1,22 @@
+PODS:
+  - GRDB.swift (4.6.2):
+    - GRDB.swift/standard (= 4.6.2)
+  - GRDB.swift/standard (4.6.2)
+  - SnapshotTesting (1.6.0)
+
+DEPENDENCIES:
+  - GRDB.swift (~> 4.1)
+  - SnapshotTesting (~> 1.5)
+
+SPEC REPOS:
+  trunk:
+    - GRDB.swift
+    - SnapshotTesting
+
+SPEC CHECKSUMS:
+  GRDB.swift: 258520e10b49ff55307cbb0bec701af0742ae621
+  SnapshotTesting: 9f478335073a830eafb7dc1fcd526c5e90143991
+
+PODFILE CHECKSUM: 8187aa36f284ef09d5a4bd7d146714f996cbf683
+
+COCOAPODS: 1.8.0
