@@ -8,7 +8,7 @@
 import GRDB
 
 extension DatabaseQueue {
-    static func inMemoryDatabase(fromPath path: String, configuration: Configuration = Configuration()) throws -> DatabaseQueue {
-        try DatabaseQueue(path: path, configuration: configuration).inMemoryCopy()
+    public static func inMemoryDatabase(fromPath path: String, configuration: Configuration = Configuration()) throws -> DatabaseQueue {
+        try DatabaseQueue(path: path).inMemoryCopy(configuration: configuration)
     }
 }

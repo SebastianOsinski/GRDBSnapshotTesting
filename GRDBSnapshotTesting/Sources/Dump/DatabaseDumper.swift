@@ -29,7 +29,7 @@ struct DatabaseDumper {
     private func dumpCreateTables(lines: inout [String]) throws {
         let tables = try database.read(SQLiteMaster.Requests.tables.fetchAll)
         
-        lines.append(contentsOf: ["// TABLES"])
+        lines.append(contentsOf: [header("TABLES")])
         
         let createTables = tables
             .map(formatCreateTable)
@@ -43,7 +43,7 @@ struct DatabaseDumper {
         
         guard !indexes.isEmpty else { return }
         
-        lines.append(contentsOf: ["// INDEXES"])
+        lines.append(contentsOf: [header("INDEXES")])
         
         let createIndexes = indexes
             .map(formatCreateIndex)
@@ -57,7 +57,7 @@ struct DatabaseDumper {
         
         guard !triggers.isEmpty else { return }
         
-        lines.append(contentsOf: ["// TRIGGERS"])
+        lines.append(contentsOf: [header("TRIGGERS")])
         
         let createTriggers = triggers
             .map { $0.sql }
@@ -71,7 +71,7 @@ struct DatabaseDumper {
         
         guard !views.isEmpty else { return }
         
-        lines.append(contentsOf: ["// VIEWS"])
+        lines.append(contentsOf: [header("VIEWS")])
         
         let createViews = views
             .map { $0.sql }
@@ -83,7 +83,7 @@ struct DatabaseDumper {
     private func dumpData(lines: inout [String]) throws {
         let tables = try database.read(SQLiteMaster.Requests.tables.fetchAll)
         
-        lines.append(contentsOf: ["// DATA"])
+        lines.append(contentsOf: [header("DATA")])
         
         try tables.forEach { table in
             lines.append("")
@@ -95,10 +95,10 @@ struct DatabaseDumper {
     private func dumpTable(_ table: String, lines: inout [String]) throws {
         let rows = try database.read { try Row.fetchAll($0, sql: "SELECT * FROM \(table)") }
         
-        lines.append(contentsOf: ["// \(table)"])
+        lines.append(contentsOf: [subheader(table)])
         
         if rows.isEmpty {
-            lines.append("== NO ROWS ==")
+            lines.append("<NO ROWS>")
         } else {
             lines.append(contentsOf: formatRows(rows))
         }
@@ -151,5 +151,13 @@ struct DatabaseDumper {
             +
             ")"
         }
+    }
+    
+    private func header(_ name: String) -> String {
+        "======== \(name) ========"
+    }
+    
+    private func subheader(_ name: String) -> String {
+        "## \(name)"
     }
 }

@@ -1,0 +1,55 @@
+======== TABLES ========
+CREATE TABLE grdb_migrations (
+  identifier TEXT NOT NULL PRIMARY KEY
+)
+
+CREATE TABLE "author" (
+  "id" INTEGER PRIMARY KEY AUTOINCREMENT
+  "name" TEXT NOT NULL
+  "country" TEXT NOT NULL
+)
+
+CREATE TABLE sqlite_sequence(
+  name
+  seq
+)
+
+CREATE TABLE "book" (
+  "id" INTEGER PRIMARY KEY AUTOINCREMENT
+  "title" TEXT NOT NULL
+  "authorId" INTEGER NOT NULL REFERENCES "author"("id") ON DELETE CASCADE
+  "lastUpdate" DATETIME
+)
+
+======== INDEXES ========
+CREATE INDEX "book_authorId" ON "book"("authorId")
+
+CREATE INDEX "author_country" ON "author"("country")
+
+======== TRIGGERS ========
+CREATE TRIGGER book_update
+        AFTER UPDATE ON book
+        WHEN NEW.lastUpdate = OLD.lastUpdate
+        BEGIN
+            UPDATE place SET lastUpdate = CURRENT_TIMESTAMP WHERE id = NEW.id;
+        END
+
+======== DATA ========
+
+## grdb_migrations
+("exampleMigration")
+
+## author
+(1, "J.K. Rowling", "UK")
+(2, "J.R.R. Tolkien", "UK")
+
+## sqlite_sequence
+("author", 2)
+("book", 5)
+
+## book
+(1, "Harry Potter and the Philosopher\'s Stone", 1, NULL)
+(2, "Harry Potter and the Chamber of Secrets", 1, NULL)
+(3, "Harry Potter and the Prisoner of Azkaban", 1, NULL)
+(4, "The Hobbit", 2, NULL)
+(5, "The Fellowship of the Ring", 2, NULL)
