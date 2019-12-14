@@ -133,7 +133,7 @@ struct DatabaseDumper {
     }
     
     private func formatRows(_ rows: [Row]) -> [String] {
-        rows.map { row in
+        return rows.map { row in
             "("
             +
             row
@@ -147,10 +147,10 @@ struct DatabaseDumper {
     }
     
     private func header(_ name: String) -> String {
-        "======== \(name) ========"
+        return "======== \(name) ========"
     }
     
     private func subheader(_ name: String) -> String {
-        "## \(name)"
+        return "## \(name)"
     }
 }

@@ -8,7 +8,7 @@ protocol DBMigration {
 
 extension DBMigration {
     static var name: String {
-        String(describing: self)
+        return String(describing: self)
     }
 }
 
