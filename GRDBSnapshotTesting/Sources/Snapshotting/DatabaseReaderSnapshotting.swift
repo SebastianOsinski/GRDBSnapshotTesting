@@ -14,9 +14,11 @@ extension Snapshotting where Value: DatabaseReader, Format == String {
 }
 
 public extension Snapshotting where Value == DatabaseQueue, Format == String {
+    /// Snapshot strategy for comparing databases based on dump representation.
     static let dbDump = _dump()
 }
 
 public extension Snapshotting where Value == DatabasePool, Format == String {
+    /// Snapshot strategy for comparing databases based on dump representation.
     static let dbDump = _dump()
 }
