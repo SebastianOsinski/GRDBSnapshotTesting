@@ -1,10 +1,3 @@
-//
-//  SQLiteMaster.swift
-//  GRDBSnapshotTesting
-//
-//  Created by Sebastian Osiński on 11/12/2019.
-//
-
 import GRDB
 
 struct SQLiteMaster: Decodable, FetchableRecord, TableRecord {

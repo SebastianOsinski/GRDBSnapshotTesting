@@ -1,11 +1,3 @@
-//
-//  GRDBSnapshotTestingTests.swift
-//  GRDBSnapshotTestingTests
-//
-//  Created by Sebastian Osiński on 11/12/2019.
-//  Copyright © 2019 Sebastian Osiński. All rights reserved.
-//
-
 import XCTest
 import GRDB
 import SnapshotTesting

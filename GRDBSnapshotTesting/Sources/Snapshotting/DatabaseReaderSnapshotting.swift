@@ -1,10 +1,3 @@
-//
-//  DatabaseReaderSnapshotting.swift
-//  GRDB.swift
-//
-//  Created by Sebastian Osiński on 11/12/2019.
-//
-
 import SnapshotTesting
 import GRDB
 
