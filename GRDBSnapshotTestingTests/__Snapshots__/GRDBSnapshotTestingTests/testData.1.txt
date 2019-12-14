@@ -7,6 +7,7 @@ CREATE TABLE "author" (
   "id" INTEGER PRIMARY KEY AUTOINCREMENT
   "name" TEXT NOT NULL
   "country" TEXT NOT NULL
+  "lastUpdate" DATETIME
 )
 
 CREATE TABLE sqlite_sequence(
@@ -21,21 +22,24 @@ CREATE TABLE "book" (
   "lastUpdate" DATETIME
 )
 
-======== INDEXES ========
-CREATE INDEX "book_authorId" ON "book"("authorId")
-
-CREATE INDEX "author_country" ON "author"("country")
-
 ======== DATA ========
 
 ## grdb_migrations
-("exampleMigration")
+("AuthorTable")
+("BookTable")
+("Data")
 
 ## author
-<NO ROWS>
+(1, "J.K. Rowling", "UK", NULL)
+(2, "J.R.R. Tolkien", "UK", NULL)
 
 ## sqlite_sequence
-<NO ROWS>
+("author", 2)
+("book", 5)
 
 ## book
-<NO ROWS>
+(1, "Harry Potter and the Philosopher\'s Stone", 1, NULL)
+(2, "Harry Potter and the Chamber of Secrets", 1, NULL)
+(3, "Harry Potter and the Prisoner of Azkaban", 1, NULL)
+(4, "The Hobbit", 2, NULL)
+(5, "The Fellowship of the Ring", 2, NULL)

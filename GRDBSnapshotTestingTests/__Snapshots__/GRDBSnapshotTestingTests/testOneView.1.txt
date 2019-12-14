@@ -7,6 +7,7 @@ CREATE TABLE "author" (
   "id" INTEGER PRIMARY KEY AUTOINCREMENT
   "name" TEXT NOT NULL
   "country" TEXT NOT NULL
+  "lastUpdate" DATETIME
 )
 
 CREATE TABLE sqlite_sequence(
@@ -21,10 +22,20 @@ CREATE TABLE "book" (
   "lastUpdate" DATETIME
 )
 
+======== VIEWS ========
+CREATE VIEW authorsPerCountry
+    AS
+    SELECT country, COUNT(*) as authorsCount
+    FROM author
+    GROUP BY country
+    ORDER BY authorsCount DESC
+
 ======== DATA ========
 
 ## grdb_migrations
-("exampleMigration")
+("AuthorTable")
+("BookTable")
+("AuthorsPerCountryView")
 
 ## author
 <NO ROWS>

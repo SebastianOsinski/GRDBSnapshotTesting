@@ -7,6 +7,7 @@ CREATE TABLE "author" (
   "id" INTEGER PRIMARY KEY AUTOINCREMENT
   "name" TEXT NOT NULL
   "country" TEXT NOT NULL
+  "lastUpdate" DATETIME
 )
 
 CREATE TABLE sqlite_sequence(
@@ -21,12 +22,14 @@ CREATE TABLE "book" (
   "lastUpdate" DATETIME
 )
 
-======== INDEXES ========
-CREATE INDEX "book_authorId" ON "book"("authorId")
-
-CREATE INDEX "author_country" ON "author"("country")
-
 ======== TRIGGERS ========
+CREATE TRIGGER author_update
+        AFTER UPDATE ON author
+        WHEN NEW.lastUpdate = OLD.lastUpdate
+        BEGIN
+            UPDATE place SET lastUpdate = CURRENT_TIMESTAMP WHERE id = NEW.id;
+        END
+
 CREATE TRIGGER book_update
         AFTER UPDATE ON book
         WHEN NEW.lastUpdate = OLD.lastUpdate
@@ -37,7 +40,10 @@ CREATE TRIGGER book_update
 ======== DATA ========
 
 ## grdb_migrations
-("exampleMigration")
+("AuthorTable")
+("BookTable")
+("AuthorUpdateTrigger")
+("BookUpdateTrigger")
 
 ## author
 <NO ROWS>

@@ -10,14 +10,14 @@
 		18D417D336E105AF7604C0A6 /* Pods_GRDBSnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0196A53214900BA29781E1F5 /* Pods_GRDBSnapshotTesting.framework */; };
 		30C19A1F709BD0D53B89AE25 /* Pods_GRDBSnapshotTesting_GRDBSnapshotTestingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2187CDB9924BAE2719EB4B /* Pods_GRDBSnapshotTesting_GRDBSnapshotTestingTests.framework */; };
 		91FFD32B23A1847F00C86158 /* GRDBSnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91FFD32123A1847F00C86158 /* GRDBSnapshotTesting.framework */; };
-		91FFD33023A1847F00C86158 /* DBDumpSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFD32F23A1847F00C86158 /* DBDumpSnapshotTests.swift */; };
+		91FFD33023A1847F00C86158 /* GRDBSnapshotTestingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFD32F23A1847F00C86158 /* GRDBSnapshotTestingTests.swift */; };
 		91FFD33223A1847F00C86158 /* GRDBSnapshotTesting.h in Headers */ = {isa = PBXBuildFile; fileRef = 91FFD32423A1847F00C86158 /* GRDBSnapshotTesting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		91FFD34323A184C500C86158 /* DatabaseWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFD33C23A184C500C86158 /* DatabaseWriter.swift */; };
 		91FFD34423A184C500C86158 /* DatabaseQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFD33D23A184C500C86158 /* DatabaseQueue.swift */; };
 		91FFD34523A184C500C86158 /* SQLiteMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFD33F23A184C500C86158 /* SQLiteMaster.swift */; };
 		91FFD34623A184C500C86158 /* DatabaseDumper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFD34023A184C500C86158 /* DatabaseDumper.swift */; };
 		91FFD34723A184C500C86158 /* DatabaseReaderSnapshotting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFD34223A184C500C86158 /* DatabaseReaderSnapshotting.swift */; };
-		91FFD34E23A2D9DA00C86158 /* ExampleMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFD34D23A2D9DA00C86158 /* ExampleMigration.swift */; };
+		91FFD34E23A2D9DA00C86158 /* Migrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FFD34D23A2D9DA00C86158 /* Migrations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,14 +40,14 @@
 		91FFD32423A1847F00C86158 /* GRDBSnapshotTesting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GRDBSnapshotTesting.h; sourceTree = "<group>"; };
 		91FFD32523A1847F00C86158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91FFD32A23A1847F00C86158 /* GRDBSnapshotTestingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GRDBSnapshotTestingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		91FFD32F23A1847F00C86158 /* DBDumpSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBDumpSnapshotTests.swift; sourceTree = "<group>"; };
+		91FFD32F23A1847F00C86158 /* GRDBSnapshotTestingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRDBSnapshotTestingTests.swift; sourceTree = "<group>"; };
 		91FFD33123A1847F00C86158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91FFD33C23A184C500C86158 /* DatabaseWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseWriter.swift; sourceTree = "<group>"; };
 		91FFD33D23A184C500C86158 /* DatabaseQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseQueue.swift; sourceTree = "<group>"; };
 		91FFD33F23A184C500C86158 /* SQLiteMaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteMaster.swift; sourceTree = "<group>"; };
 		91FFD34023A184C500C86158 /* DatabaseDumper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseDumper.swift; sourceTree = "<group>"; };
 		91FFD34223A184C500C86158 /* DatabaseReaderSnapshotting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseReaderSnapshotting.swift; sourceTree = "<group>"; };
-		91FFD34D23A2D9DA00C86158 /* ExampleMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleMigration.swift; sourceTree = "<group>"; };
+		91FFD34D23A2D9DA00C86158 /* Migrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Migrations.swift; sourceTree = "<group>"; };
 		9A2187CDB9924BAE2719EB4B /* Pods_GRDBSnapshotTesting_GRDBSnapshotTestingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GRDBSnapshotTesting_GRDBSnapshotTestingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,9 +116,9 @@
 		91FFD32E23A1847F00C86158 /* GRDBSnapshotTestingTests */ = {
 			isa = PBXGroup;
 			children = (
-				91FFD32F23A1847F00C86158 /* DBDumpSnapshotTests.swift */,
+				91FFD32F23A1847F00C86158 /* GRDBSnapshotTestingTests.swift */,
 				91FFD33123A1847F00C86158 /* Info.plist */,
-				91FFD34D23A2D9DA00C86158 /* ExampleMigration.swift */,
+				91FFD34D23A2D9DA00C86158 /* Migrations.swift */,
 			);
 			path = GRDBSnapshotTestingTests;
 			sourceTree = "<group>";
@@ -356,8 +356,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91FFD34E23A2D9DA00C86158 /* ExampleMigration.swift in Sources */,
-				91FFD33023A1847F00C86158 /* DBDumpSnapshotTests.swift in Sources */,
+				91FFD34E23A2D9DA00C86158 /* Migrations.swift in Sources */,
+				91FFD33023A1847F00C86158 /* GRDBSnapshotTestingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
