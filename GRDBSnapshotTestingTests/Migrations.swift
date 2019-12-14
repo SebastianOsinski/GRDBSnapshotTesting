@@ -108,6 +108,14 @@ enum Migrations {
         }
     }
     
+    enum DocumentVirtualTable: DBMigration {
+        static func migrate(db: Database) throws {
+            try db.create(virtualTable: "document", using: FTS4()) { t in
+                t.column("content")
+            }
+        }
+    }
+    
     enum Data: DBMigration {
         static func migrate(db: Database) throws {
             try db.execute(sql: """

@@ -96,6 +96,16 @@ class GRDBSnapshotTestingTests: XCTestCase {
         assertSnapshot(matching: db, as: .dbDump, record: record)
     }
     
+    func testVirtualTable() throws {
+        try applyMigrations(db: db, migrations: [
+            Migrations.AuthorTable.self,
+            Migrations.BookTable.self,
+            Migrations.DocumentVirtualTable.self
+        ])
+        
+        assertSnapshot(matching: db, as: .dbDump, record: record)
+    }
+    
     func testData() throws {
         try applyMigrations(db: db, migrations: [
             Migrations.AuthorTable.self,
@@ -115,6 +125,7 @@ class GRDBSnapshotTestingTests: XCTestCase {
             Migrations.BookUpdateTrigger.self,
             Migrations.AuthorsPerCountryView.self,
             Migrations.BooksPerAuthorView.self,
+            Migrations.DocumentVirtualTable.self,
             Migrations.Data.self
         ])
         
