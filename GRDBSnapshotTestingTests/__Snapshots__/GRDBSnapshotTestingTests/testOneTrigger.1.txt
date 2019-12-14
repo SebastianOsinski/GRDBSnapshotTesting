@@ -24,11 +24,11 @@ CREATE TABLE "book" (
 
 ======== TRIGGERS ========
 CREATE TRIGGER author_update
-        AFTER UPDATE ON author
-        WHEN NEW.lastUpdate = OLD.lastUpdate
-        BEGIN
-            UPDATE place SET lastUpdate = CURRENT_TIMESTAMP WHERE id = NEW.id;
-        END
+    AFTER UPDATE ON author
+    WHEN NEW.lastUpdate = OLD.lastUpdate
+    BEGIN
+        UPDATE place SET lastUpdate = CURRENT_TIMESTAMP WHERE id = NEW.id;
+    END
 
 ======== DATA ========
 

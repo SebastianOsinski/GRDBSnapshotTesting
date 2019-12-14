@@ -64,11 +64,11 @@ CREATE INDEX "author_country" ON "author"("country")
 
 ======== TRIGGERS ========
 CREATE TRIGGER book_update
-        AFTER UPDATE ON book
-        WHEN NEW.lastUpdate = OLD.lastUpdate
-        BEGIN
-            UPDATE place SET lastUpdate = CURRENT_TIMESTAMP WHERE id = NEW.id;
-        END
+    AFTER UPDATE ON book
+    WHEN NEW.lastUpdate = OLD.lastUpdate
+    BEGIN
+        UPDATE place SET lastUpdate = CURRENT_TIMESTAMP WHERE id = NEW.id;
+    END
 
 ======== VIEWS ========
 CREATE VIEW authorsPerCountry

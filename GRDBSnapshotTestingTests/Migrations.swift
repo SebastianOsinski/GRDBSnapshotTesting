@@ -58,12 +58,12 @@ enum Migrations {
     enum AuthorUpdateTrigger: DBMigration {
         static func migrate(db: Database) throws {
             try db.execute(sql: """
-                CREATE TRIGGER author_update
-                    AFTER UPDATE ON author
-                    WHEN NEW.lastUpdate = OLD.lastUpdate
-                    BEGIN
-                        UPDATE place SET lastUpdate = CURRENT_TIMESTAMP WHERE id = NEW.id;
-                    END
+            CREATE TRIGGER author_update
+                AFTER UPDATE ON author
+                WHEN NEW.lastUpdate = OLD.lastUpdate
+                BEGIN
+                    UPDATE place SET lastUpdate = CURRENT_TIMESTAMP WHERE id = NEW.id;
+                END
             """)
         }
     }
@@ -71,12 +71,12 @@ enum Migrations {
     enum BookUpdateTrigger: DBMigration {
         static func migrate(db: Database) throws {
             try db.execute(sql: """
-                CREATE TRIGGER book_update
-                    AFTER UPDATE ON book
-                    WHEN NEW.lastUpdate = OLD.lastUpdate
-                    BEGIN
-                        UPDATE place SET lastUpdate = CURRENT_TIMESTAMP WHERE id = NEW.id;
-                    END
+            CREATE TRIGGER book_update
+                AFTER UPDATE ON book
+                WHEN NEW.lastUpdate = OLD.lastUpdate
+                BEGIN
+                    UPDATE place SET lastUpdate = CURRENT_TIMESTAMP WHERE id = NEW.id;
+                END
             """)
         }
     }
@@ -84,7 +84,7 @@ enum Migrations {
     enum AuthorsPerCountryView: DBMigration {
         static func migrate(db: Database) throws {
             try db.execute(sql: """
-                CREATE VIEW authorsPerCountry
+            CREATE VIEW authorsPerCountry
                 AS
                 SELECT country, COUNT(*) as authorsCount
                 FROM author
@@ -97,7 +97,7 @@ enum Migrations {
     enum BooksPerAuthorView: DBMigration {
         static func migrate(db: Database) throws {
             try db.execute(sql: """
-                CREATE VIEW booksPerAuthor
+            CREATE VIEW booksPerAuthor
                 AS
                 SELECT author.name, count(book.id) as booksCount
                 FROM author
