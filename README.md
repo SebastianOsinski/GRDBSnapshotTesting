@@ -1,6 +1,6 @@
 # GRDBSnapshotTesting
 
-[![Swift 5.1](https://img.shields.io/badge/swift-5.1-ED523F.svg)](https://swift.org/download/)
+[![Swift 5.0](https://img.shields.io/badge/swift-5.0-ED523F.svg)](https://swift.org/download/)
 [![Pod version](https://img.shields.io/cocoapods/v/GRDBSnapshotTesting)](https://img.shields.io/cocoapods/v/GRDBSnapshotTesting)
 [![License](https://img.shields.io/cocoapods/l/GRDBSnapshotTesting)](https://img.shields.io/cocoapods/l/GRDBSnapshotTesting)
 
@@ -128,11 +128,30 @@ and test your migrations thoroughly.
 
 ## Installation
 
-For now, the project only supports `Cocoapods`. 
+#### CocoaPods
+
 Add the pod to your testing target in `Podfile`:
 
 ```ruby
 target 'MyAppTests' do
   pod 'GRDBSnapshotTesting', '~> 0.1'
 end
+```
+
+#### Swift Package Manager
+
+Add the package to your testing target in `Package.swift`:
+
+```diff
+ let package = Package(
+     dependencies: [
++        .package(url: "https://github.com/SebastianOsinski/GRDBSnapshotTesting.git", ...)
+     ],
+     targets: [
+         .testTarget(
+             dependencies: [
++                "GRDBSnapshotTesting"
+             ])
+     ]
+ )
 ```
