@@ -128,6 +128,14 @@ class GRDBSnapshotTestingTests: XCTestCase {
         assertSnapshot(matching: db, as: .dbDump, record: record)
     }
     
+    func testTablesWithSQLiteKeywordNamesAreSnapshottedWithoutError() throws {
+        try applyMigrations(db: db, migrations: [
+            Migrations.SQLiteKeywordTableNames.self
+        ])
+        
+        assertSnapshot(matching: db, as: .dbDump, record: record)
+    }
+    
     private func applyMigrations(db: DatabaseQueue, migrations: [DBMigration.Type]) throws {
         var migrator = DatabaseMigrator()
         

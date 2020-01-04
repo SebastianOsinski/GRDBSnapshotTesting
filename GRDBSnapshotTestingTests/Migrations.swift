@@ -123,4 +123,20 @@ enum Migrations {
             """)
         }
     }
+    
+    enum SQLiteKeywordTableNames: DBMigration {
+        static func migrate(db: Database) throws {
+            try db.create(table: "database") { t in
+                t.column("name", .text).notNull()
+            }
+            
+            try db.create(table: "filter") { t in
+                t.column("name", .text).notNull()
+            }
+            
+            try db.create(table: "transaction") { t in
+                t.column("name", .text).notNull()
+            }
+        }
+    }
 }
