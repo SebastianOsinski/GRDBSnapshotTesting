@@ -139,4 +139,21 @@ enum Migrations {
             }
         }
     }
+    
+    enum CompositePrimaryKeyTable: DBMigration {
+        static func migrate(db: Database) throws {
+            try db.create(table: "exampleTable") { t in
+                t.column("first", .text).notNull()
+                t.column("second", .text).notNull()
+                t.primaryKey(["first", "second"])
+            }
+            
+            try db.execute(sql: """
+            INSERT INTO exampleTable VALUES ("B", "B");
+            INSERT INTO exampleTable VALUES ("A", "B");
+            INSERT INTO exampleTable VALUES ("B", "A");
+            INSERT INTO exampleTable VALUES ("A", "A");
+            """)
+        }
+    }
 }

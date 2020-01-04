@@ -1,0 +1,15 @@
+======== TABLES ========
+CREATE TABLE "exampleTable" (
+  "first" TEXT NOT NULL
+  "second" TEXT NOT NULL
+  PRIMARY KEY ("first"
+  "second")
+)
+
+======== DATA ========
+
+## exampleTable
+("A", "A")
+("A", "B")
+("B", "A")
+("B", "B")
