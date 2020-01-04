@@ -31,27 +31,22 @@ extension SQLiteMaster {
     }
     
     enum Requests {
-        static let tables = SQLiteMaster
-            .all()
-            .filter(Columns.type == RecordType.table.rawValue)
-            .filter(literal: "name NOT LIKE 'sqlite\\_%' ESCAPE '\\'")
-            .filter(literal: "name NOT LIKE 'grdb\\_%' ESCAPE '\\'")
-            .order(Columns.name.asc)
+        private static func objects(type: RecordType) -> QueryInterfaceRequest<SQLiteMaster> {
+            return SQLiteMaster
+                .all()
+                .filter(Columns.type == type.rawValue)
+                .filter(literal: "name NOT LIKE 'sqlite\\_%' ESCAPE '\\'")
+                .filter(literal: "name NOT LIKE 'grdb\\_%' ESCAPE '\\'")
+                .order(Columns.name.asc)
+        }
         
-        static let indexes = SQLiteMaster
-            .all()
-            .filter(Columns.type == RecordType.index.rawValue)
+        static let tables = objects(type: .table)
+        
+        static let indexes = objects(type: .index)
             .filter(Columns.sql != nil) // All user-created indexes have sql, only automatic have null sql
-            .order(Columns.name.asc)
         
-        static let triggers = SQLiteMaster
-            .all()
-            .filter(Columns.type == RecordType.trigger.rawValue)
-            .order(Columns.name.asc)
+        static let triggers = objects(type: .trigger)
         
-        static let views = SQLiteMaster
-            .all()
-            .filter(Columns.type == RecordType.view.rawValue)
-            .order(Columns.name.asc)
+        static let views = objects(type: .view)
     }
 }
