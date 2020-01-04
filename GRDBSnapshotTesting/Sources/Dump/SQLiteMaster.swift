@@ -24,22 +24,27 @@ struct SQLiteMaster: Decodable, FetchableRecord, TableRecord {
 }
 
 extension SQLiteMaster {
+    private enum Columns {
+        static let type = Column("type")
+        static let sql = Column("sql")
+    }
+    
     enum Requests {
         static let tables = SQLiteMaster
             .all()
-            .filter(Column("type") == RecordType.table.rawValue)
+            .filter(Columns.type == RecordType.table.rawValue)
         
         static let indexes = SQLiteMaster
             .all()
-            .filter(Column("type") == RecordType.index.rawValue)
-            .filter(Column("sql") != nil) // All user-created indexes have sql, only automatic have null sql
+            .filter(Columns.type == RecordType.index.rawValue)
+            .filter(Columns.sql != nil) // All user-created indexes have sql, only automatic have null sql
         
         static let triggers = SQLiteMaster
             .all()
-            .filter(Column("type") == RecordType.trigger.rawValue)
+            .filter(Columns.type == RecordType.trigger.rawValue)
         
         static let views = SQLiteMaster
             .all()
-            .filter(Column("type") == RecordType.view.rawValue)
+            .filter(Columns.type == RecordType.view.rawValue)
     }
 }
