@@ -172,7 +172,7 @@ struct DatabaseDumper {
         }
     }
     
-    private var emptyLine: String { "" }
+    private let emptyLine = ""
     
     private func header(_ name: String) -> String {
         return "======== \(name) ========"
