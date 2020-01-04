@@ -98,7 +98,7 @@ struct DatabaseDumper {
     }
     
     private func dumpTable(_ table: String, lines: inout [String]) throws {
-        let rows = try database.read { try Row.fetchAll($0, sql: "SELECT * FROM \(table)") }
+        let rows = try database.read { try Row.fetchAll($0, sql: "SELECT * FROM \(table.quotedDatabaseIdentifier)") }
         
         lines.append(contentsOf: [subheader(table)])
         

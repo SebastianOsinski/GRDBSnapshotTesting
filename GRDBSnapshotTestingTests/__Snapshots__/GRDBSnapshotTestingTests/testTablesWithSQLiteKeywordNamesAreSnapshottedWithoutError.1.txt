@@ -1,0 +1,23 @@
+======== TABLES ========
+CREATE TABLE "database" (
+  "name" TEXT NOT NULL
+)
+
+CREATE TABLE "filter" (
+  "name" TEXT NOT NULL
+)
+
+CREATE TABLE "transaction" (
+  "name" TEXT NOT NULL
+)
+
+======== DATA ========
+
+## database
+<NO ROWS>
+
+## filter
+<NO ROWS>
+
+## transaction
+<NO ROWS>
