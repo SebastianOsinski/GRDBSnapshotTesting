@@ -1,5 +1,12 @@
-osx_image: xcode10.2
 language: objective-c
 xcode_workspace: GRDBSnapshotTesting.xcworkspace
 xcode_scheme: GRDBSnapshotTesting
-xcode_destination: platform=iOS Simulator,OS=12.2,name=iPhone XS
+
+jobs:
+    include:
+    - osx_image: xcode10.2
+      xcode_destination: platform=iOS Simulator,OS=12.2,name=iPhone XS
+    - osx_image: xcode11.3
+      xcode_destination: platform=iOS Simulator,OS=12.2,name=iPhone XS
+    - osx_image: xcode11.3
+      xcode_destination: platform=iOS Simulator,OS=13.3,name=iPhone 11 Pro
