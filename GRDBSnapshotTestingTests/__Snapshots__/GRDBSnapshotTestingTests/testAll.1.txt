@@ -22,9 +22,9 @@ CREATE TABLE 'document_content'(
   'c0content'
 )
 
-CREATE TABLE 'document_segments'(
-  blockid INTEGER PRIMARY KEY
-  block BLOB
+CREATE TABLE 'document_docsize'(
+  docid INTEGER PRIMARY KEY
+  size BLOB
 )
 
 CREATE TABLE 'document_segdir'(
@@ -38,9 +38,9 @@ CREATE TABLE 'document_segdir'(
   idx)
 )
 
-CREATE TABLE 'document_docsize'(
-  docid INTEGER PRIMARY KEY
-  size BLOB
+CREATE TABLE 'document_segments'(
+  blockid INTEGER PRIMARY KEY
+  block BLOB
 )
 
 CREATE TABLE 'document_stat'(
@@ -49,9 +49,9 @@ CREATE TABLE 'document_stat'(
 )
 
 ======== INDEXES ========
-CREATE INDEX "book_authorId" ON "book"("authorId")
-
 CREATE INDEX "author_country" ON "author"("country")
+
+CREATE INDEX "book_authorId" ON "book"("authorId")
 
 ======== TRIGGERS ========
 CREATE TRIGGER book_update
@@ -96,13 +96,13 @@ CREATE VIEW booksPerAuthor
 ## document_content
 <NO ROWS>
 
-## document_segments
+## document_docsize
 <NO ROWS>
 
 ## document_segdir
 <NO ROWS>
 
-## document_docsize
+## document_segments
 <NO ROWS>
 
 ## document_stat

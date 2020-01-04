@@ -14,9 +14,9 @@ CREATE TABLE "book" (
 )
 
 ======== INDEXES ========
-CREATE INDEX "book_authorId" ON "book"("authorId")
-
 CREATE INDEX "author_country" ON "author"("country")
+
+CREATE INDEX "book_authorId" ON "book"("authorId")
 
 ======== DATA ========
 
