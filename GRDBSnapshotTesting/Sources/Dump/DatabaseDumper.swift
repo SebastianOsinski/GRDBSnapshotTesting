@@ -23,16 +23,17 @@ struct DatabaseDumper {
         let tables = try database.read(SQLiteMaster.Requests.tables.fetchAll)
         
         lines.append(contentsOf: [header("TABLES")])
+        lines.append(emptyLine)
         
         guard !tables.isEmpty else {
-            lines.append(placeholder("NO TABLES"))
+            lines.append(contentsOf: [placeholder("NO TABLES"), emptyLine])
             
             return
         }
         
         let createTables = tables
             .map(formatCreateTable)
-            .flatMap { $0 + [""] }
+            .flatMap { $0 + [emptyLine] }
         
         lines.append(contentsOf: createTables)
     }
@@ -42,11 +43,11 @@ struct DatabaseDumper {
         
         guard !indexes.isEmpty else { return }
         
-        lines.append(contentsOf: [header("INDEXES")])
+        lines.append(contentsOf: [header("INDEXES"), emptyLine])
         
         let createIndexes = indexes
             .map(formatCreateIndex)
-            .flatMap { $0 + [""] }
+            .flatMap { $0 + [emptyLine] }
         
         lines.append(contentsOf: createIndexes)
     }
@@ -56,11 +57,11 @@ struct DatabaseDumper {
         
         guard !triggers.isEmpty else { return }
         
-        lines.append(contentsOf: [header("TRIGGERS")])
+        lines.append(contentsOf: [header("TRIGGERS"), emptyLine])
         
         let createTriggers = triggers
             .map { $0.sql }
-            .flatMap { [$0] + [""] }
+            .flatMap { [$0] + [emptyLine] }
         
         lines.append(contentsOf: createTriggers)
     }
@@ -70,11 +71,11 @@ struct DatabaseDumper {
         
         guard !views.isEmpty else { return }
         
-        lines.append(contentsOf: [header("VIEWS")])
+        lines.append(contentsOf: [header("VIEWS"), emptyLine])
         
         let createViews = views
             .map { $0.sql }
-            .flatMap { [$0] + [""] }
+            .flatMap { [$0] + [emptyLine] }
         
         lines.append(contentsOf: createViews)
     }
@@ -82,19 +83,22 @@ struct DatabaseDumper {
     private func dumpData(lines: inout [String]) throws {
         let tables = try database.read(SQLiteMaster.Requests.tables.fetchAll)
         
-        lines.append(contentsOf: [header("DATA")])
+        lines.append(contentsOf: [header("DATA"), emptyLine])
         
         guard !tables.isEmpty else {
-            lines.append(placeholder("NO DATA"))
+            lines.append(contentsOf: [placeholder("NO DATA"), emptyLine])
             
             return
         }
         
         try tables.forEach { table in
-            lines.append("")
-            
             try dumpTable(table.name, lines: &lines)
+            
+            lines.append(emptyLine)
         }
+        
+        // Remove last added empty line
+        lines.removeLast()
     }
     
     private func dumpTable(_ table: String, lines: inout [String]) throws {
@@ -167,6 +171,8 @@ struct DatabaseDumper {
             ")"
         }
     }
+    
+    private var emptyLine: String { "" }
     
     private func header(_ name: String) -> String {
         return "======== \(name) ========"

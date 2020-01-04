@@ -1,4 +1,5 @@
 ======== TABLES ========
+
 CREATE TABLE "exampleTable" (
   "first" TEXT NOT NULL
   "second" TEXT NOT NULL
