@@ -24,6 +24,12 @@ struct DatabaseDumper {
         
         lines.append(contentsOf: [header("TABLES")])
         
+        guard !tables.isEmpty else {
+            lines.append(placeholder("NO TABLES"))
+            
+            return
+        }
+        
         let createTables = tables
             .map(formatCreateTable)
             .flatMap { $0 + [""] }
@@ -78,6 +84,12 @@ struct DatabaseDumper {
         
         lines.append(contentsOf: [header("DATA")])
         
+        guard !tables.isEmpty else {
+            lines.append(placeholder("NO DATA"))
+            
+            return
+        }
+        
         try tables.forEach { table in
             lines.append("")
             
@@ -91,7 +103,7 @@ struct DatabaseDumper {
         lines.append(contentsOf: [subheader(table)])
         
         if rows.isEmpty {
-            lines.append("<NO ROWS>")
+            lines.append(placeholder("NO ROWS"))
         } else {
             lines.append(contentsOf: formatRows(rows))
         }
@@ -152,5 +164,9 @@ struct DatabaseDumper {
     
     private func subheader(_ name: String) -> String {
         return "## \(name)"
+    }
+    
+    private func placeholder(_ name: String) -> String {
+        return "<\(name)>"
     }
 }
