@@ -24,20 +24,12 @@ Example snapshot file:
 
 ```
 ======== TABLES ========
-CREATE TABLE grdb_migrations (
-  identifier TEXT NOT NULL PRIMARY KEY
-)
 
 CREATE TABLE "author" (
   "id" INTEGER PRIMARY KEY AUTOINCREMENT
   "name" TEXT NOT NULL
   "country" TEXT NOT NULL
   "lastUpdate" DATETIME
-)
-
-CREATE TABLE sqlite_sequence(
-  name
-  seq
 )
 
 CREATE TABLE "book" (
@@ -49,18 +41,9 @@ CREATE TABLE "book" (
 
 ======== DATA ========
 
-## grdb_migrations
-("AuthorTable")
-("BookTable")
-("Data")
-
 ## author
 (1, "J.K. Rowling", "UK", NULL)
 (2, "J.R.R. Tolkien", "UK", NULL)
-
-## sqlite_sequence
-("author", 2)
-("book", 5)
 
 ## book
 (1, "Harry Potter and the Philosopher\'s Stone", 1, NULL)
