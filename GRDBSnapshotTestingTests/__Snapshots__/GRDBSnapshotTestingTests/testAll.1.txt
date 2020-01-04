@@ -1,4 +1,5 @@
 ======== TABLES ========
+
 CREATE TABLE "author" (
   "id" INTEGER PRIMARY KEY AUTOINCREMENT
   "name" TEXT NOT NULL
@@ -49,11 +50,13 @@ CREATE TABLE 'document_stat'(
 )
 
 ======== INDEXES ========
+
 CREATE INDEX "author_country" ON "author"("country")
 
 CREATE INDEX "book_authorId" ON "book"("authorId")
 
 ======== TRIGGERS ========
+
 CREATE TRIGGER book_update
     AFTER UPDATE ON book
     WHEN NEW.lastUpdate = OLD.lastUpdate
@@ -62,6 +65,7 @@ CREATE TRIGGER book_update
     END
 
 ======== VIEWS ========
+
 CREATE VIEW authorsPerCountry
     AS
     SELECT country, COUNT(*) as authorsCount

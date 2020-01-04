@@ -1,4 +1,5 @@
 ======== TABLES ========
+
 CREATE TABLE "author" (
   "id" INTEGER PRIMARY KEY AUTOINCREMENT
   "name" TEXT NOT NULL
@@ -14,6 +15,7 @@ CREATE TABLE "book" (
 )
 
 ======== VIEWS ========
+
 CREATE VIEW authorsPerCountry
     AS
     SELECT country, COUNT(*) as authorsCount

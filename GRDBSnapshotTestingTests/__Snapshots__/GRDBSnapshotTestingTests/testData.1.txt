@@ -1,4 +1,5 @@
 ======== TABLES ========
+
 CREATE TABLE "author" (
   "id" INTEGER PRIMARY KEY AUTOINCREMENT
   "name" TEXT NOT NULL

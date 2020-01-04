@@ -1,4 +1,5 @@
 ======== TABLES ========
+
 CREATE TABLE "database" (
   "name" TEXT NOT NULL
 )
