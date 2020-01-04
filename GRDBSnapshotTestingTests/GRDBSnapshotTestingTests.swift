@@ -8,6 +8,10 @@ class GRDBSnapshotTestingTests: XCTestCase {
     
     private let record = false
     
+    func testEmptyDatabase() throws {
+        assertSnapshot(matching: db, as: .dbDump, record: record)
+    }
+    
     func testOneTable() throws {
         try applyMigrations(db: db, migrations: [
             Migrations.AuthorTable.self
