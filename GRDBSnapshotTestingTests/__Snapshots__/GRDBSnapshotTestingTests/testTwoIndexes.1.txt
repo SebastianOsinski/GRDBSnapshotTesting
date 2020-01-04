@@ -1,18 +1,9 @@
 ======== TABLES ========
-CREATE TABLE grdb_migrations (
-  identifier TEXT NOT NULL PRIMARY KEY
-)
-
 CREATE TABLE "author" (
   "id" INTEGER PRIMARY KEY AUTOINCREMENT
   "name" TEXT NOT NULL
   "country" TEXT NOT NULL
   "lastUpdate" DATETIME
-)
-
-CREATE TABLE sqlite_sequence(
-  name
-  seq
 )
 
 CREATE TABLE "book" (
@@ -29,16 +20,7 @@ CREATE INDEX "author_country" ON "author"("country")
 
 ======== DATA ========
 
-## grdb_migrations
-("AuthorTable")
-("BookTable")
-("BookAuthorIdIndex")
-("AuthorCountryIndex")
-
 ## author
-<NO ROWS>
-
-## sqlite_sequence
 <NO ROWS>
 
 ## book

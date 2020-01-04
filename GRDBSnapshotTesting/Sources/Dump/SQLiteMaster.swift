@@ -33,6 +33,8 @@ extension SQLiteMaster {
         static let tables = SQLiteMaster
             .all()
             .filter(Columns.type == RecordType.table.rawValue)
+            .filter(literal: "name NOT LIKE 'sqlite\\_%' ESCAPE '\\'")
+            .filter(literal: "name NOT LIKE 'grdb\\_%' ESCAPE '\\'")
         
         static let indexes = SQLiteMaster
             .all()
