@@ -128,9 +128,17 @@ class GRDBSnapshotTestingTests: XCTestCase {
         assertSnapshot(matching: db, as: .dbDump, record: record)
     }
     
-    func testTablesWithSQLiteKeywordNamesAreSnapshottedWithoutError() throws {
+    func testTableWithSQLiteKeywordIdentifiersIsSnapshottedWithoutError() throws {
         try applyMigrations(db: db, migrations: [
-            Migrations.SQLiteKeywordTableNames.self
+            Migrations.SQLiteKeywordsTable.self
+        ])
+        
+        assertSnapshot(matching: db, as: .dbDump, record: record)
+    }
+    
+    func testTableWithSQLiteKeywordIdentifiersAndCompositePrimaryKeyIsSnapshottedWithoutError() throws {
+        try applyMigrations(db: db, migrations: [
+            Migrations.SQLiteKeywordsTableCompositeKey.self
         ])
         
         assertSnapshot(matching: db, as: .dbDump, record: record)

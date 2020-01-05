@@ -124,19 +124,35 @@ enum Migrations {
         }
     }
     
-    enum SQLiteKeywordTableNames: DBMigration {
+    enum SQLiteKeywordsTable: DBMigration {
         static func migrate(db: Database) throws {
-            try db.create(table: "database") { t in
-                t.column("name", .text).notNull()
+            try db.create(table: "table") { t in
+                t.column("primary", .text).primaryKey()
             }
             
-            try db.create(table: "filter") { t in
-                t.column("name", .text).notNull()
+            try db.execute(sql: """
+            INSERT INTO "table" VALUES ("D");
+            INSERT INTO "table" VALUES ("B");
+            INSERT INTO "table" VALUES ("A");
+            INSERT INTO "table" VALUES ("C");
+            """)
+        }
+    }
+    
+    enum SQLiteKeywordsTableCompositeKey: DBMigration {
+        static func migrate(db: Database) throws {
+            try db.create(table: "table") { t in
+                t.column("primary", .text).notNull()
+                t.column("join", .text).notNull()
+                t.primaryKey(["primary", "join"])
             }
             
-            try db.create(table: "transaction") { t in
-                t.column("name", .text).notNull()
-            }
+            try db.execute(sql: """
+            INSERT INTO "table" VALUES ("B", "B");
+            INSERT INTO "table" VALUES ("A", "B");
+            INSERT INTO "table" VALUES ("B", "A");
+            INSERT INTO "table" VALUES ("A", "A");
+            """)
         }
     }
     
