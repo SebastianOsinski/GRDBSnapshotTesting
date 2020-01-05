@@ -117,7 +117,7 @@ Add the pod to your testing target in `Podfile`:
 
 ```ruby
 target 'MyAppTests' do
-  pod 'GRDBSnapshotTesting', '~> 0.1'
+  pod 'GRDBSnapshotTesting', '~> 0.2'
 end
 ```
 
