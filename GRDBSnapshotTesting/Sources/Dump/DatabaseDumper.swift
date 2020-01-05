@@ -61,7 +61,7 @@ struct DatabaseDumper {
         
         let createTriggers = triggers
             .map { $0.sql }
-            .flatMap { [$0] + [emptyLine] }
+            .flatMap { [$0, emptyLine] }
         
         lines.append(contentsOf: createTriggers)
     }
@@ -75,7 +75,7 @@ struct DatabaseDumper {
         
         let createViews = views
             .map { $0.sql }
-            .flatMap { [$0] + [emptyLine] }
+            .flatMap { [$0, emptyLine] }
         
         lines.append(contentsOf: createViews)
     }
