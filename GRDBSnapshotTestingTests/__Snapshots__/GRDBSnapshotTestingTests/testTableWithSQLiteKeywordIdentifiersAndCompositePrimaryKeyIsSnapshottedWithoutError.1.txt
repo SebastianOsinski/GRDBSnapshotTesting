@@ -1,0 +1,16 @@
+======== TABLES ========
+
+CREATE TABLE "table" (
+  "primary" TEXT NOT NULL
+  "join" TEXT NOT NULL
+  PRIMARY KEY ("primary"
+  "join")
+)
+
+======== DATA ========
+
+## table
+("A", "A")
+("A", "B")
+("B", "A")
+("B", "B")

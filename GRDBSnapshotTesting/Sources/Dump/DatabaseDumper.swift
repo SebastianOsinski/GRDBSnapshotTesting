@@ -105,11 +105,11 @@ struct DatabaseDumper {
         let rows = try database.read { db -> [Row] in
             let primaryKey = try db.primaryKey(table)
             let order = primaryKey.columns
-                .map { $0.quotedDatabaseIdentifier }
+                .map { $0.sqlQuotedDatabaseIdentifier }
                 .joined(separator: ", ")
             
             return try Row.fetchAll(db, sql: """
-                SELECT * FROM \(table.quotedDatabaseIdentifier)
+                SELECT * FROM \(table.sqlQuotedDatabaseIdentifier)
                 ORDER BY \(order)
             """)
         }

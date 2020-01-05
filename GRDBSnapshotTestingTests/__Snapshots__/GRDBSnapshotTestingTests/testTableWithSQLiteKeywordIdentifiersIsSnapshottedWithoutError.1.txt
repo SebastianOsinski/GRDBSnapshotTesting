@@ -1,0 +1,13 @@
+======== TABLES ========
+
+CREATE TABLE "table" (
+  "primary" TEXT PRIMARY KEY
+)
+
+======== DATA ========
+
+## table
+("A")
+("B")
+("C")
+("D")
