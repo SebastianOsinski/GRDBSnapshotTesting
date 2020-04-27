@@ -1,3 +1,7 @@
+## 0.2.1
+
+- Fixed issues which caused linking error on Xcode 11.4 when installed with CocoaPods
+
 ## 0.2.0
 
 **New**

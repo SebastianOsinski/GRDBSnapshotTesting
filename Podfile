@@ -8,7 +8,7 @@ target 'GRDBSnapshotTesting' do
   # Pods for GRDBSnapshotTesting
   
   pod 'GRDB.swift', '~> 4.1'
-  pod 'SnapshotTesting', '~> 1.5'
+  pod 'SnapshotTesting', '~> 1.7'
 
   target 'GRDBSnapshotTestingTests' do
     # Pods for testing
