@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GRDBSnapshotTesting'
-  s.version          = '0.2.1'
+  s.version          = '0.3.0'
   s.summary          = 'Snapshot tests for GRDB database migrations'
 
 # This description is used to generate tags and improve search results.
@@ -28,12 +28,12 @@ Pod::Spec.new do |s|
 
   s.swift_version = "5.0"
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '11.0'
 
   s.source_files = 'GRDBSnapshotTesting/Sources/**/*.swift'
   
-  s.dependency 'GRDB.swift', '~> 4.1'
-  s.dependency 'SnapshotTesting', '~> 1.7'
+  s.dependency 'GRDB.swift', '~> 5'
+  s.dependency 'SnapshotTesting', '~> 1.8'
 
   s.frameworks = "XCTest"
   s.pod_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }

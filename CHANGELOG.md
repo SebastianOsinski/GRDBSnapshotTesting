@@ -1,3 +1,8 @@
+## 0.3.0
+
+- Compatibility with GRDB 5
+- Minimal iOS target bumped to iOS 11
+
 ## 0.2.1
 
 - Fixed issues which caused linking error on Xcode 11.4 when installed with CocoaPods
