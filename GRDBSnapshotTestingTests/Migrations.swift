@@ -131,10 +131,10 @@ enum Migrations {
             }
             
             try db.execute(sql: """
-            INSERT INTO "table" VALUES ("D");
-            INSERT INTO "table" VALUES ("B");
-            INSERT INTO "table" VALUES ("A");
-            INSERT INTO "table" VALUES ("C");
+            INSERT INTO "table" VALUES ('D');
+            INSERT INTO "table" VALUES ('B');
+            INSERT INTO "table" VALUES ('A');
+            INSERT INTO "table" VALUES ('C');
             """)
         }
     }
@@ -148,10 +148,10 @@ enum Migrations {
             }
             
             try db.execute(sql: """
-            INSERT INTO "table" VALUES ("B", "B");
-            INSERT INTO "table" VALUES ("A", "B");
-            INSERT INTO "table" VALUES ("B", "A");
-            INSERT INTO "table" VALUES ("A", "A");
+            INSERT INTO "table" VALUES ('B', 'B');
+            INSERT INTO "table" VALUES ('A', 'B');
+            INSERT INTO "table" VALUES ('B', 'A');
+            INSERT INTO "table" VALUES ('A', 'A');
             """)
         }
     }
@@ -165,10 +165,10 @@ enum Migrations {
             }
             
             try db.execute(sql: """
-            INSERT INTO exampleTable VALUES ("B", "B");
-            INSERT INTO exampleTable VALUES ("A", "B");
-            INSERT INTO exampleTable VALUES ("B", "A");
-            INSERT INTO exampleTable VALUES ("A", "A");
+            INSERT INTO exampleTable VALUES ('B', 'B');
+            INSERT INTO exampleTable VALUES ('A', 'B');
+            INSERT INTO exampleTable VALUES ('B', 'A');
+            INSERT INTO exampleTable VALUES ('A', 'A');
             """)
         }
     }
