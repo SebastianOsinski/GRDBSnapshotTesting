@@ -1,6 +1,7 @@
 ## 0.3.0
 
 - Compatibility with GRDB 5
+- Minimal Swift version set to 5.2
 - Minimal iOS target bumped to iOS 11
 
 ## 0.2.1

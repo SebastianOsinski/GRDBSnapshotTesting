@@ -1,6 +1,6 @@
 # GRDBSnapshotTesting
 
-[![Swift 5.0](https://img.shields.io/badge/swift-5.0-ED523F.svg)](https://swift.org/download/)
+[![Swift 5.2](https://img.shields.io/badge/swift-5.0-ED523F.svg)](https://swift.org/download/)
 [![Pod version](https://img.shields.io/cocoapods/v/GRDBSnapshotTesting)](https://img.shields.io/cocoapods/v/GRDBSnapshotTesting)
 [![License](https://img.shields.io/cocoapods/l/GRDBSnapshotTesting)](https://img.shields.io/cocoapods/l/GRDBSnapshotTesting)
 
