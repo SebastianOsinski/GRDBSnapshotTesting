@@ -1,3 +1,5 @@
+# This project has been superseded by the official [GRDBSnapshotTesting](https://github.com/groue/GRDBSnapshotTesting) library
+
 # GRDBSnapshotTesting
 
 [![Swift 5.2](https://img.shields.io/badge/swift-5.0-ED523F.svg)](https://swift.org/download/)
